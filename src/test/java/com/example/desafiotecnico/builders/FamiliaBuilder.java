@@ -3,7 +3,6 @@ package com.example.desafiotecnico.builders;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import com.example.desafiotecnico.dominio.entidades.Familia;
 import com.example.desafiotecnico.dominio.entidades.Pessoa;
@@ -19,16 +18,16 @@ public class FamiliaBuilder {
         if (responsavel == null) {
             responsavel = new PessoaBuilder().construir();
         }
+
         if (conjugue == null) {
             conjugue = new PessoaBuilder().construir();
         }
+
         if (dependentes.size() == 0) {
             int numDependentes = GeradorDeNumero.gerarNumeroInteiroAleatorio(0, MAX_DEPENDENTES + 1);
 
-            List<Pessoa> dependentes = new ArrayList<>();
             for (int i = 0; i < numDependentes; i++) {
-                Pessoa dependente = new PessoaBuilder().construir();
-                dependentes.add(dependente);
+                comDependente(new PessoaBuilder().construir());
             }
         }
 

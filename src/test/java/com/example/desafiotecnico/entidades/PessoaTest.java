@@ -16,7 +16,7 @@ public class PessoaTest {
     void deve_poder_criar_uma_pessoa() throws ParseException {
         String nome = "Pessoa01";
         int renda = 1000;
-        String data = "20/03/1970";
+        String data = "1970-03-20";
         Date dataConvertida = new DataConversor().converterStringParaDate(data);
 
         Pessoa pessoa = new Pessoa(nome, renda, dataConvertida);

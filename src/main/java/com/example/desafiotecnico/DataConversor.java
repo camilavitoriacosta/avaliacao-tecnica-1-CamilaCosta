@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class DataConversor {
     public Date converterStringParaDate(String data) throws ParseException {
-        String pattern = "dd/MM/yyyy";
+        String pattern = "yyyy-MM-dd";
 
         SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
         return dateFormat.parse(data);

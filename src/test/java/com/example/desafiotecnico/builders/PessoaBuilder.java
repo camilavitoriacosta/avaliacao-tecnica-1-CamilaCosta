@@ -42,7 +42,7 @@ public class PessoaBuilder {
         int dia = GeradorDeNumero.gerarNumeroInteiroAleatorio(1, 28);
         int mes = GeradorDeNumero.gerarNumeroInteiroAleatorio(1, 12);
         int ano = GeradorDeNumero.gerarNumeroInteiroAleatorio(1940, 2003);
-        String data = dia + "/" + mes + "/" + ano;
+        String data = ano + "-" + mes + "-" + dia;
 
         this.dataNascimento = new DataConversor().converterStringParaDate(data);
         return this;
@@ -52,7 +52,7 @@ public class PessoaBuilder {
         int dia = GeradorDeNumero.gerarNumeroInteiroAleatorio(1, 28);
         int mes = GeradorDeNumero.gerarNumeroInteiroAleatorio(1, 12);
         int ano = GeradorDeNumero.gerarNumeroInteiroAleatorio(2004, 2023);
-        String data = dia + "/" + mes + "/" + ano;
+        String data = ano + "-" + mes + "-" + dia;
 
         this.dataNascimento = new DataConversor().converterStringParaDate(data);
         return this;
