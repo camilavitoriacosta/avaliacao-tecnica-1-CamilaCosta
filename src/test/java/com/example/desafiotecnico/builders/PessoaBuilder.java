@@ -14,7 +14,7 @@ public class PessoaBuilder {
     private Date dataNascimento;
 
     public PessoaBuilder() throws ParseException {
-        renda = GeradorDeNumero.gerarNumeroDecimalAleatorio(0, 2000);
+        renda = 0;
         nome = "Pessoa " + GeradorDeNumero.gerarNumeroInteiroAleatorio(0, 100);
         maiorDeIdade();
     }
@@ -25,6 +25,11 @@ public class PessoaBuilder {
 
     public PessoaBuilder comRenda(double renda) {
         this.renda = renda;
+        return this;
+    }
+
+    public PessoaBuilder comRendaAleatoria() {
+        this.renda = GeradorDeNumero.gerarNumeroDecimalAleatorio(0, 2000);
         return this;
     }
 
