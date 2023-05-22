@@ -1,6 +1,7 @@
 package com.example.desafiotecnico.infraestrutura;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -19,11 +20,22 @@ public class FamiliaRepositoryTest {
     private FamiliaRepository familiaRepository;
 
     @Test
+    void deve_cadastrar_uma_familia() throws ParseException {
+        Familia familia = new FamiliaBuilder().construir();
+
+        familiaRepository.save(familia);
+
+        assertNotNull(familia.getId());
+    }
+
+    @Test
     void deve_buscar_familias_ordenadas_por_pontuacao() throws ParseException {
-        Familia familia1 = new FamiliaBuilder().comPontuacao(5).construir();
-        familiaRepository.save(familia1);
         Familia familia2 = new FamiliaBuilder().comPontuacao(3).construir();
         familiaRepository.save(familia2);
+
+        Familia familia1 = new FamiliaBuilder().comPontuacao(5).construir();
+        familiaRepository.save(familia1);
+
         List<Familia> familiasOrdenadasEsperadas = new ArrayList<>();
         familiasOrdenadasEsperadas.add(familia1);
         familiasOrdenadasEsperadas.add(familia2);

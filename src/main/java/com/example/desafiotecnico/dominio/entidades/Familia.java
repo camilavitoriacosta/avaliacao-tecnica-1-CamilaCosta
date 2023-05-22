@@ -25,7 +25,6 @@ public class Familia {
     private Long id;
 
     @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "responsavel_id")
     private Pessoa responsavel;
 
     @OneToOne(cascade = CascadeType.PERSIST)
