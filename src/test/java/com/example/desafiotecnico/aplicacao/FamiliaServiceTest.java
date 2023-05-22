@@ -22,6 +22,7 @@ import com.example.desafiotecnico.infraestrutura.FamiliaRepository;
 import com.example.desafiotecnico.mappers.FamiliaMapper;
 
 @SpringBootTest
+@Transactional
 public class FamiliaServiceTest {
     @Autowired
     private FamiliaService familiaService;
@@ -31,7 +32,6 @@ public class FamiliaServiceTest {
     private FamiliaRepository familiaRepository;
 
     @Test
-    @Transactional
     void deve_salvar_uma_familia() throws Exception {
         FamiliaRequestDTO familiaRequestDTO = new FamiliaRequestDTOBuilder().construir();
 
