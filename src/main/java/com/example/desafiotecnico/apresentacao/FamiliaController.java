@@ -31,7 +31,7 @@ public class FamiliaController {
     @ApiResponse(responseCode = "200")
     @GetMapping()
     public ResponseEntity<Collection<FamiliaListaResponseDTO>> obterFamiliasOrdenadasPorPontuacao() {
-        return ResponseEntity.status(HttpStatus.CREATED)
+        return ResponseEntity.status(HttpStatus.OK)
                 .body(familiaService.ordenarFamiliasPorPontuacao());
     }
 
