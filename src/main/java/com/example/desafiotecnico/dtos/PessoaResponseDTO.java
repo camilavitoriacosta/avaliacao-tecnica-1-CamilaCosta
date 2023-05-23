@@ -1,6 +1,6 @@
 package com.example.desafiotecnico.dtos;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,9 +16,9 @@ public class PessoaResponseDTO {
 
     private double renda;
 
-    private Date dataDeNascimento;
+    private LocalDate dataDeNascimento;
 
-    public PessoaResponseDTO(Long id, String nome, double renda, Date dataDeNascimento) {
+    public PessoaResponseDTO(Long id, String nome, double renda, LocalDate dataDeNascimento) {
         this.id = id;
         this.nome = nome;
         this.renda = renda;

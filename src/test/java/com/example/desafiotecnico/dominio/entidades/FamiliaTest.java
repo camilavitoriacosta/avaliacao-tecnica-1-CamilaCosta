@@ -2,7 +2,6 @@ package com.example.desafiotecnico.dominio.entidades;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +11,7 @@ import com.example.desafiotecnico.builders.PessoaBuilder;
 
 public class FamiliaTest {
     @Test
-    void deve_poder_criar_uma_familia() throws ParseException {
+    void deve_poder_criar_uma_familia() {
         Pessoa responsavel = new PessoaBuilder().construir();
         Pessoa conjugue = new PessoaBuilder().construir();
         List<Pessoa> dependentes = new ArrayList<>();

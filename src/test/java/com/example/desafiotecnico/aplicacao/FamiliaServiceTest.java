@@ -3,7 +3,6 @@ package com.example.desafiotecnico.aplicacao;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +31,7 @@ public class FamiliaServiceTest {
     private FamiliaRepository familiaRepository;
 
     @Test
-    void deve_salvar_uma_familia() throws Exception {
+    void deve_salvar_uma_familia() {
         FamiliaRequestDTO familiaRequestDTO = new FamiliaRequestDTOBuilder().construir();
 
         FamiliaResponseDTO response = familiaService.criar(familiaRequestDTO);
@@ -41,7 +40,7 @@ public class FamiliaServiceTest {
     }
 
     @Test
-    void deve_ordenar_familias_por_pontuacao() throws ParseException {
+    void deve_ordenar_familias_por_pontuacao() {
         Familia familia1 = new FamiliaBuilder().comPontuacao(5).construir();
         familiaRepository.save(familia1);
         Familia familia2 = new FamiliaBuilder().comPontuacao(3).construir();

@@ -79,4 +79,14 @@ public class Familia {
         }
         return rendaTotal;
     }
+
+    public int obterDependentesMaioresDeDezoitoAnos() {
+        int dependentesMaioresDeDezoitoAnos = 0;
+        for (Pessoa dependente : getDependentes()) {
+            if (dependente.maiorDeDezoito()) {
+                dependentesMaioresDeDezoitoAnos++;
+            }
+        }
+        return dependentesMaioresDeDezoitoAnos;
+    }
 }

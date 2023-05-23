@@ -1,4 +1,4 @@
-package com.example.desafiotecnico.builders;
+package com.example.desafiotecnico.utils;
 
 import java.util.Random;
 

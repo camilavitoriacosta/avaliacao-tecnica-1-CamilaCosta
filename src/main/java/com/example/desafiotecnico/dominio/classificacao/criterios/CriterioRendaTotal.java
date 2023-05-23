@@ -17,9 +17,7 @@ public class CriterioRendaTotal implements ICriterio {
     public int validar(Familia familia) {
         double rendaTotal = familia.obterRendaTotal();
         if (rendaTotal > limiteInferior && rendaTotal <= limiteSuperior) {
-            {
-                return pontuacao;
-            }
+            return pontuacao;
         }
 
         return 0;

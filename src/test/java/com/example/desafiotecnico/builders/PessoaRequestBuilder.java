@@ -1,19 +1,19 @@
 package com.example.desafiotecnico.builders;
 
-import java.text.ParseException;
-import java.util.Date;
+import java.time.LocalDate;
 
 import com.example.desafiotecnico.dtos.PessoaRequestDTO;
-import com.example.desafiotecnico.utils.DataConversor;
+import com.example.desafiotecnico.utils.GeradorDeData;
+import com.example.desafiotecnico.utils.GeradorDeNumero;
 
 public class PessoaRequestBuilder {
     private double renda;
 
     private String nome;
 
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
 
-    public PessoaRequestBuilder() throws ParseException {
+    public PessoaRequestBuilder() {
         renda = 0;
         nome = "Pessoa " + GeradorDeNumero.gerarNumeroInteiroAleatorio(0, 100);
         maiorDeIdade();
@@ -38,23 +38,15 @@ public class PessoaRequestBuilder {
         return this;
     }
 
-    public PessoaRequestBuilder maiorDeIdade() throws ParseException {
-        int dia = GeradorDeNumero.gerarNumeroInteiroAleatorio(1, 28);
-        int mes = GeradorDeNumero.gerarNumeroInteiroAleatorio(1, 12);
-        int ano = GeradorDeNumero.gerarNumeroInteiroAleatorio(1940, 2003);
-        String data = ano + "-" + mes + "-" + dia;
-
-        this.dataNascimento = new DataConversor().converterStringParaDate(data);
+    public PessoaRequestBuilder maiorDeIdade() {
+        String data = GeradorDeData.gerarDataAleatoria(1940, 2003);
+        this.dataNascimento = LocalDate.parse(data);
         return this;
     }
 
-    public PessoaRequestBuilder menorDeIdade() throws ParseException {
-        int dia = GeradorDeNumero.gerarNumeroInteiroAleatorio(1, 28);
-        int mes = GeradorDeNumero.gerarNumeroInteiroAleatorio(1, 12);
-        int ano = GeradorDeNumero.gerarNumeroInteiroAleatorio(2004, 2023);
-        String data = ano + "-" + mes + "-" + dia;
-
-        this.dataNascimento = new DataConversor().converterStringParaDate(data);
+    public PessoaRequestBuilder menorDeIdade() {
+        String data = GeradorDeData.gerarDataAleatoria(2004, 2023);
+        this.dataNascimento = LocalDate.parse(data);
         return this;
     }
 }

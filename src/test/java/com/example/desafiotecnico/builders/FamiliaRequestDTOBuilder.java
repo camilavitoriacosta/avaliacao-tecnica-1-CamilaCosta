@@ -1,11 +1,11 @@
 package com.example.desafiotecnico.builders;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collection;
 
 import com.example.desafiotecnico.dtos.FamiliaRequestDTO;
 import com.example.desafiotecnico.dtos.PessoaRequestDTO;
+import com.example.desafiotecnico.utils.GeradorDeNumero;
 
 public class FamiliaRequestDTOBuilder {
     private static int MAX_DEPENDENTES = 7;
@@ -13,7 +13,7 @@ public class FamiliaRequestDTOBuilder {
     private PessoaRequestDTO conjugue;
     private Collection<PessoaRequestDTO> dependentes = new ArrayList<>();
 
-    public FamiliaRequestDTO construir() throws ParseException {
+    public FamiliaRequestDTO construir() {
         if (responsavel == null) {
             responsavel = new PessoaRequestBuilder().construir();
         }

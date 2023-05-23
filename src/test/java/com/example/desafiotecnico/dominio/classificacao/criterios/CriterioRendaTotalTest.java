@@ -2,8 +2,6 @@ package com.example.desafiotecnico.dominio.classificacao.criterios;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.text.ParseException;
-
 import org.junit.jupiter.api.Test;
 
 import com.example.desafiotecnico.builders.FamiliaBuilder;
@@ -13,7 +11,7 @@ import com.example.desafiotecnico.dominio.entidades.Pessoa;
 
 public class CriterioRendaTotalTest {
     @Test
-    public void deve_validar_renda_ate_900() throws ParseException {
+    public void deve_validar_renda_ate_900() {
         Pessoa responsavel = new PessoaBuilder().comRenda(899).construir();
         Familia familia = new FamiliaBuilder().comResponsavel(responsavel).construir();
         ICriterio criterio = new CriterioRendaTotal(0, 900, 5);
@@ -25,7 +23,7 @@ public class CriterioRendaTotalTest {
     }
 
     @Test
-    public void deve_devolver_zero_pontos_para_renda_igual_a_zero() throws ParseException {
+    public void deve_devolver_zero_pontos_para_renda_igual_a_zero() {
         Pessoa responsavel = new PessoaBuilder().comRenda(0).construir();
         Familia familia = new FamiliaBuilder().comResponsavel(responsavel).construir();
         ICriterio criterio = new CriterioRendaTotal(0, 900, 5);
@@ -37,7 +35,7 @@ public class CriterioRendaTotalTest {
     }
 
     @Test
-    public void deve_validar_renda_igual_900() throws ParseException {
+    public void deve_validar_renda_igual_900() {
         Pessoa responsavel = new PessoaBuilder().comRenda(400).construir();
         Pessoa conjugue = new PessoaBuilder().comRenda(500).construir();
         Familia familia = new FamiliaBuilder().comResponsavel(responsavel).comConjugue(conjugue).construir();
@@ -50,7 +48,7 @@ public class CriterioRendaTotalTest {
     }
 
     @Test
-    public void deve_validar_renda_igual_901() throws ParseException {
+    public void deve_validar_renda_igual_901() {
         Pessoa responsavel = new PessoaBuilder().comRenda(401).construir();
         Pessoa conjugue = new PessoaBuilder().comRenda(500).construir();
         Familia familia = new FamiliaBuilder().comResponsavel(responsavel).comConjugue(conjugue).construir();
@@ -63,7 +61,7 @@ public class CriterioRendaTotalTest {
     }
 
     @Test
-    public void deve_validar_renda_entre_900_e_1500() throws ParseException {
+    public void deve_validar_renda_entre_900_e_1500() {
         Pessoa responsavel = new PessoaBuilder().comRenda(600).construir();
         Pessoa conjugue = new PessoaBuilder().comRenda(500).construir();
         Familia familia = new FamiliaBuilder().comResponsavel(responsavel).comConjugue(conjugue).construir();

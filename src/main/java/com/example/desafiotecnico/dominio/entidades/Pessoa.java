@@ -1,6 +1,6 @@
 package com.example.desafiotecnico.dominio.entidades;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,13 +30,13 @@ public class Pessoa {
     private double renda;
 
     @Column(nullable = false)
-    private Date dataDeNascimento;
+    private LocalDate dataDeNascimento;
 
     @ManyToOne
     @JoinColumn(name = "familia_id")
     private Familia familia;
 
-    public Pessoa(String nome, double renda, Date dataDeNascimento) {
+    public Pessoa(String nome, double renda, LocalDate dataDeNascimento) {
         this.nome = nome;
         this.renda = renda;
         this.dataDeNascimento = dataDeNascimento;
@@ -44,5 +44,10 @@ public class Pessoa {
 
     public void vincularFamilia(Familia familia) {
         this.familia = familia;
+    }
+
+    public boolean maiorDeDezoito() {
+        LocalDate dezoitoAnosAPartirDoDiaAtual = LocalDate.now().minusYears(18);
+        return dataDeNascimento.isBefore(dezoitoAnosAPartirDoDiaAtual);
     }
 }

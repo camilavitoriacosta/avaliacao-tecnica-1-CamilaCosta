@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +22,7 @@ public class FamiliaRepositoryTest {
     private FamiliaRepository familiaRepository;
 
     @Test
-    void deve_cadastrar_uma_familia() throws ParseException {
+    void deve_cadastrar_uma_familia() {
         Familia familia = new FamiliaBuilder().construir();
 
         familiaRepository.save(familia);
@@ -32,7 +31,7 @@ public class FamiliaRepositoryTest {
     }
 
     @Test
-    void deve_buscar_familias_ordenadas_por_pontuacao() throws ParseException {
+    void deve_buscar_familias_ordenadas_por_pontuacao() {
         Familia familia2 = new FamiliaBuilder().comPontuacao(3).construir();
         familiaRepository.save(familia2);
         Familia familia1 = new FamiliaBuilder().comPontuacao(5).construir();
@@ -43,7 +42,6 @@ public class FamiliaRepositoryTest {
         int tamanhoEsperado = familiasOrdenadasEsperadas.size();
 
         List<Familia> familiasOrdenadas = familiaRepository.findAllOrderByPontuacao();
-
 
         assertThat(familiasOrdenadas).hasSize(tamanhoEsperado);
 

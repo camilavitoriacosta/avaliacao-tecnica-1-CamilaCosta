@@ -1,11 +1,11 @@
 package com.example.desafiotecnico.builders;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collection;
 
 import com.example.desafiotecnico.dominio.entidades.Familia;
 import com.example.desafiotecnico.dominio.entidades.Pessoa;
+import com.example.desafiotecnico.utils.GeradorDeNumero;
 
 public class FamiliaBuilder {
     private static int MAX_DEPENDENTES = 7;
@@ -14,7 +14,7 @@ public class FamiliaBuilder {
     private Collection<Pessoa> dependentes = new ArrayList<>();
     private int pontuacao = 0;
 
-    public Familia construir() throws ParseException {
+    public Familia construir() {
         if (responsavel == null) {
             responsavel = new PessoaBuilder().construir();
         }
