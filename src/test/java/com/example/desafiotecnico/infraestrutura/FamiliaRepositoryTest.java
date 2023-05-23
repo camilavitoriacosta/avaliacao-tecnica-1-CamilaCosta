@@ -1,5 +1,6 @@
 package com.example.desafiotecnico.infraestrutura;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -34,19 +35,19 @@ public class FamiliaRepositoryTest {
     void deve_buscar_familias_ordenadas_por_pontuacao() throws ParseException {
         Familia familia2 = new FamiliaBuilder().comPontuacao(3).construir();
         familiaRepository.save(familia2);
-
         Familia familia1 = new FamiliaBuilder().comPontuacao(5).construir();
         familiaRepository.save(familia1);
-
         List<Familia> familiasOrdenadasEsperadas = new ArrayList<>();
         familiasOrdenadasEsperadas.add(familia1);
         familiasOrdenadasEsperadas.add(familia2);
+        int tamanhoEsperado = familiasOrdenadasEsperadas.size();
 
         List<Familia> familiasOrdenadas = familiaRepository.findAllOrderByPontuacao();
 
-        assertEquals(familiasOrdenadasEsperadas.size(), familiasOrdenadas.size());
 
-        for (int i = 0; i < familiasOrdenadasEsperadas.size(); i++) {
+        assertThat(familiasOrdenadas).hasSize(tamanhoEsperado);
+
+        for (int i = 0; i < tamanhoEsperado; i++) {
             Familia familiaEsperada = familiasOrdenadasEsperadas.get(i);
             Familia familiaAtual = familiasOrdenadas.get(i);
 

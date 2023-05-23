@@ -1,4 +1,4 @@
-package com.example.desafiotecnico.entidades;
+package com.example.desafiotecnico.dominio.entidades;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -7,8 +7,7 @@ import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
-import com.example.desafiotecnico.DataConversor;
-import com.example.desafiotecnico.dominio.entidades.Pessoa;
+import com.example.desafiotecnico.utils.DataConversor;
 
 public class PessoaTest {
 

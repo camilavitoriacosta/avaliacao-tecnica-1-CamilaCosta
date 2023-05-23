@@ -1,4 +1,4 @@
-package com.example.desafiotecnico.criterios;
+package com.example.desafiotecnico.dominio.classificacao.criterios;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import com.example.desafiotecnico.builders.FamiliaBuilder;
 import com.example.desafiotecnico.builders.PessoaBuilder;
-import com.example.desafiotecnico.dominio.classificacao.criterios.CriterioRendaTotal;
-import com.example.desafiotecnico.dominio.classificacao.criterios.ICriterio;
 import com.example.desafiotecnico.dominio.entidades.Familia;
 import com.example.desafiotecnico.dominio.entidades.Pessoa;
 
@@ -25,7 +23,7 @@ public class CriterioRendaTotalTest {
 
         assertEquals(pontuacaoEsperada, pontuacao);
     }
-    
+
     @Test
     public void deve_devolver_zero_pontos_para_renda_igual_a_zero() throws ParseException {
         Pessoa responsavel = new PessoaBuilder().comRenda(0).construir();
@@ -63,7 +61,7 @@ public class CriterioRendaTotalTest {
 
         assertEquals(pontuacaoEsperada, pontuacao);
     }
-    
+
     @Test
     public void deve_validar_renda_entre_900_e_1500() throws ParseException {
         Pessoa responsavel = new PessoaBuilder().comRenda(600).construir();

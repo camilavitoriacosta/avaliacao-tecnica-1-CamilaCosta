@@ -21,7 +21,7 @@ public class Classificador {
         return this.criterios;
     }
 
-    public void adicionar(ICriterio criterio) {
+    private void adicionar(ICriterio criterio) {
         this.criterios.add(criterio);
     }
 }

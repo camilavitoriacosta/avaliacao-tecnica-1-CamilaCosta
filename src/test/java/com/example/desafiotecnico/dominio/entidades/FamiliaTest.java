@@ -1,4 +1,4 @@
-package com.example.desafiotecnico.entidades;
+package com.example.desafiotecnico.dominio.entidades;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -9,8 +9,6 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import com.example.desafiotecnico.builders.PessoaBuilder;
-import com.example.desafiotecnico.dominio.entidades.Familia;
-import com.example.desafiotecnico.dominio.entidades.Pessoa;
 
 public class FamiliaTest {
     @Test

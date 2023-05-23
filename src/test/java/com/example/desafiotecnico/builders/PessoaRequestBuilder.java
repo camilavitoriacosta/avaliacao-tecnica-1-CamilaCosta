@@ -3,8 +3,8 @@ package com.example.desafiotecnico.builders;
 import java.text.ParseException;
 import java.util.Date;
 
-import com.example.desafiotecnico.DataConversor;
 import com.example.desafiotecnico.dtos.PessoaRequestDTO;
+import com.example.desafiotecnico.utils.DataConversor;
 
 public class PessoaRequestBuilder {
     private double renda;
