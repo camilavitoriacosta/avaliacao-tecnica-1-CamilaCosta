@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.desafiotecnico.aplicacao.FamiliaService;
-import com.example.desafiotecnico.dtos.FamiliaListaResponseDTO;
-import com.example.desafiotecnico.dtos.FamiliaRequestDTO;
-import com.example.desafiotecnico.dtos.FamiliaResponseDTO;
+import com.example.desafiotecnico.infraestrutura.dtos.FamiliaListaResponseDTO;
+import com.example.desafiotecnico.infraestrutura.dtos.FamiliaRequestDTO;
+import com.example.desafiotecnico.infraestrutura.dtos.FamiliaResponseDTO;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

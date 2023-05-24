@@ -1,4 +1,4 @@
-package com.example.desafiotecnico.mappers;
+package com.example.desafiotecnico.infraestrutura.mappers;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,8 +6,8 @@ import java.util.Collection;
 import org.springframework.stereotype.Component;
 
 import com.example.desafiotecnico.dominio.entidades.Pessoa;
-import com.example.desafiotecnico.dtos.PessoaRequestDTO;
-import com.example.desafiotecnico.dtos.PessoaResponseDTO;
+import com.example.desafiotecnico.infraestrutura.dtos.PessoaRequestDTO;
+import com.example.desafiotecnico.infraestrutura.dtos.PessoaResponseDTO;
 
 @Component
 public class PessoaMapper implements IPessoaMapper {

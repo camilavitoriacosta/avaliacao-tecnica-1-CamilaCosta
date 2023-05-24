@@ -1,4 +1,4 @@
-package com.example.desafiotecnico.dtos;
+package com.example.desafiotecnico.infraestrutura.dtos;
 
 import java.util.Collection;
 

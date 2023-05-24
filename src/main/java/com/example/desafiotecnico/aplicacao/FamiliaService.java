@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.desafiotecnico.dominio.entidades.Familia;
-import com.example.desafiotecnico.dtos.FamiliaListaResponseDTO;
-import com.example.desafiotecnico.dtos.FamiliaRequestDTO;
-import com.example.desafiotecnico.dtos.FamiliaResponseDTO;
 import com.example.desafiotecnico.infraestrutura.FamiliaRepository;
-import com.example.desafiotecnico.mappers.IFamiliaMapper;
+import com.example.desafiotecnico.infraestrutura.dtos.FamiliaListaResponseDTO;
+import com.example.desafiotecnico.infraestrutura.dtos.FamiliaRequestDTO;
+import com.example.desafiotecnico.infraestrutura.dtos.FamiliaResponseDTO;
+import com.example.desafiotecnico.infraestrutura.mappers.IFamiliaMapper;
 
 @Service
 public class FamiliaService {

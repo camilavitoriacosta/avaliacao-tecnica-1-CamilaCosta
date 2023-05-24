@@ -22,11 +22,11 @@ import com.example.desafiotecnico.DesafioTecnicoApplication;
 import com.example.desafiotecnico.builders.FamiliaBuilder;
 import com.example.desafiotecnico.builders.FamiliaRequestDTOBuilder;
 import com.example.desafiotecnico.dominio.entidades.Familia;
-import com.example.desafiotecnico.dtos.FamiliaListaResponseDTO;
-import com.example.desafiotecnico.dtos.FamiliaRequestDTO;
-import com.example.desafiotecnico.dtos.FamiliaResponseDTO;
 import com.example.desafiotecnico.infraestrutura.FamiliaRepository;
-import com.example.desafiotecnico.mappers.FamiliaMapper;
+import com.example.desafiotecnico.infraestrutura.dtos.FamiliaListaResponseDTO;
+import com.example.desafiotecnico.infraestrutura.dtos.FamiliaRequestDTO;
+import com.example.desafiotecnico.infraestrutura.dtos.FamiliaResponseDTO;
+import com.example.desafiotecnico.infraestrutura.mappers.FamiliaMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

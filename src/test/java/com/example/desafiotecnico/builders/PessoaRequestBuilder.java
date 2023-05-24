@@ -2,7 +2,7 @@ package com.example.desafiotecnico.builders;
 
 import java.time.LocalDate;
 
-import com.example.desafiotecnico.dtos.PessoaRequestDTO;
+import com.example.desafiotecnico.infraestrutura.dtos.PessoaRequestDTO;
 import com.example.desafiotecnico.utils.GeradorDeData;
 import com.example.desafiotecnico.utils.GeradorDeNumero;
 

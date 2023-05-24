@@ -1,4 +1,4 @@
-package com.example.desafiotecnico.mappers;
+package com.example.desafiotecnico.infraestrutura.mappers;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 
 import com.example.desafiotecnico.dominio.entidades.Familia;
 import com.example.desafiotecnico.dominio.entidades.Pessoa;
-import com.example.desafiotecnico.dtos.FamiliaListaResponseDTO;
-import com.example.desafiotecnico.dtos.FamiliaRequestDTO;
-import com.example.desafiotecnico.dtos.FamiliaResponseDTO;
-import com.example.desafiotecnico.dtos.PessoaResponseDTO;
+import com.example.desafiotecnico.infraestrutura.dtos.FamiliaListaResponseDTO;
+import com.example.desafiotecnico.infraestrutura.dtos.FamiliaRequestDTO;
+import com.example.desafiotecnico.infraestrutura.dtos.FamiliaResponseDTO;
+import com.example.desafiotecnico.infraestrutura.dtos.PessoaResponseDTO;
 
 @Component
 public class FamiliaMapper implements IFamiliaMapper {

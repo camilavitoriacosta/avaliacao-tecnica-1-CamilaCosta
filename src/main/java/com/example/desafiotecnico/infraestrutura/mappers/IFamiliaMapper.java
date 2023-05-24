@@ -1,4 +1,4 @@
-package com.example.desafiotecnico.mappers;
+package com.example.desafiotecnico.infraestrutura.mappers;
 
 import java.util.Collection;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.List;
 import org.mapstruct.Mapper;
 
 import com.example.desafiotecnico.dominio.entidades.Familia;
-import com.example.desafiotecnico.dtos.FamiliaListaResponseDTO;
-import com.example.desafiotecnico.dtos.FamiliaRequestDTO;
-import com.example.desafiotecnico.dtos.FamiliaResponseDTO;
+import com.example.desafiotecnico.infraestrutura.dtos.FamiliaListaResponseDTO;
+import com.example.desafiotecnico.infraestrutura.dtos.FamiliaRequestDTO;
+import com.example.desafiotecnico.infraestrutura.dtos.FamiliaResponseDTO;
 
 @Mapper(componentModel = "spring")
 public interface IFamiliaMapper {
