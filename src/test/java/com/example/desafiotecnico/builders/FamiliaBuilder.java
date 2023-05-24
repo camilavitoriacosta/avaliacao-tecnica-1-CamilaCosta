@@ -5,10 +5,8 @@ import java.util.Collection;
 
 import com.example.desafiotecnico.dominio.entidades.Familia;
 import com.example.desafiotecnico.dominio.entidades.Pessoa;
-import com.example.desafiotecnico.utils.GeradorDeNumero;
 
 public class FamiliaBuilder {
-    private static int MAX_DEPENDENTES = 7;
     private Pessoa responsavel;
     private Pessoa conjugue;
     private Collection<Pessoa> dependentes = new ArrayList<>();
@@ -21,14 +19,6 @@ public class FamiliaBuilder {
 
         if (conjugue == null) {
             conjugue = new PessoaBuilder().construir();
-        }
-
-        if (dependentes.size() == 0) {
-            int numDependentes = GeradorDeNumero.gerarNumeroInteiroAleatorio(0, MAX_DEPENDENTES + 1);
-
-            for (int i = 0; i < numDependentes; i++) {
-                comDependente(new PessoaBuilder().construir());
-            }
         }
 
         Familia familia = new Familia(responsavel, conjugue, dependentes);
