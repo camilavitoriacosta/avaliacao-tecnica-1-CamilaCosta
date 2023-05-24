@@ -59,7 +59,6 @@ public class Familia {
         for (Pessoa dependente : this.dependentes) {
             dependente.vincularFamilia(this);
         }
-
     }
 
     public void setPontuacao(int pontuacao) {
@@ -80,7 +79,7 @@ public class Familia {
         return rendaTotal;
     }
 
-    public int obterDependentesMaioresDeDezoitoAnos() {
+    public int contarDependentesMaioresDeDezoitoAnos() {
         int dependentesMaioresDeDezoitoAnos = 0;
         for (Pessoa dependente : getDependentes()) {
             if (dependente.maiorDeDezoito()) {

@@ -21,7 +21,7 @@ public class CriterioQuantidadeDeDependentes implements ICriterio {
 
     @Override
     public int validar(Familia familia) {
-        int dependentesMaioresDeDezoitoAnos = familia.obterDependentesMaioresDeDezoitoAnos();
+        int dependentesMaioresDeDezoitoAnos = familia.contarDependentesMaioresDeDezoitoAnos();
         if (dependentesMaioresDeDezoitoAnos > 0 && validarLimiteInferior(dependentesMaioresDeDezoitoAnos)
                 && validarLimiteSuperior(dependentesMaioresDeDezoitoAnos)) {
 

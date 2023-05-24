@@ -1,7 +1,9 @@
 package com.example.desafiotecnico.apresentacao;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +15,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
@@ -21,9 +22,13 @@ import com.example.desafiotecnico.DesafioTecnicoApplication;
 import com.example.desafiotecnico.builders.FamiliaBuilder;
 import com.example.desafiotecnico.builders.FamiliaRequestDTOBuilder;
 import com.example.desafiotecnico.dominio.entidades.Familia;
+import com.example.desafiotecnico.dtos.FamiliaListaResponseDTO;
 import com.example.desafiotecnico.dtos.FamiliaRequestDTO;
+import com.example.desafiotecnico.dtos.FamiliaResponseDTO;
 import com.example.desafiotecnico.infraestrutura.FamiliaRepository;
 import com.example.desafiotecnico.mappers.FamiliaMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = DesafioTecnicoApplication.class)
 @AutoConfigureMockMvc
@@ -38,38 +43,51 @@ public class FamiliaControllerTest {
     @Autowired
     private FamiliaMapper familiaMapper;
 
-    // void deve_criar_uma_familia() {
-    //     int quantidadeEsperada = 1;
-    //     FamiliaRequestDTO familiaRequestDTO = new FamiliaRequestDTOBuilder().construir();
+    void deve_criar_uma_familia() throws Exception {
+        FamiliaRequestDTO familiaRequestDTO = new FamiliaRequestDTOBuilder().construir();
+        Long idEsperado = 1L;
 
-    //     // Action
-    //     mvc.perform(post("/api/v1/familias").contentType(MediaType.APPLICATION_JSON)
-    //             .content(JsonUtil.toJson(familiaRequestDTO)))
-    //             .andExpect(status().isCreated());
+        MvcResult resultado = mvc.perform(post("/api/v1/familias/", familiaRequestDTO)).andReturn();
 
-    //     // Asserts
-    //     Iterable<Familia> tiposEncontrados = familiaRepository.findAll();
-    //     long quantidadeEncontrada = tiposEncontrados.spliterator().getExactSizeIfKnown();
+        int status = resultado.getResponse().getStatus();
+        String content = resultado.getResponse().getContentAsString();
+        ObjectMapper objectMapper = new ObjectMapper();
+        FamiliaResponseDTO familiaRetornada = objectMapper.readValue(content, FamiliaResponseDTO.class);
 
-    //     assertThat(quantidadeEncontrada).isEqualTo(quantidadeEsperada);
-    // }
+        assertEquals(HttpStatus.OK.value(), status);
+        assertThat(idEsperado).isEqualTo(familiaRetornada.getId());
+    }
 
     @Test
     void deve_trazer_familias_ordenadas_por_pontuacao() throws Exception {
         Familia familia1 = new FamiliaBuilder().comPontuacao(5).construir();
-        familiaRepository.save(familia1);
         Familia familia2 = new FamiliaBuilder().comPontuacao(3).construir();
+        Familia familia3 = new FamiliaBuilder().comPontuacao(8).construir();
         familiaRepository.save(familia2);
-        List<Familia> familiasOrdenadasEsperadas = new ArrayList<>();
-        familiasOrdenadasEsperadas.add(familia1);
-        familiasOrdenadasEsperadas.add(familia2);
+        familiaRepository.save(familia1);
+        familiaRepository.save(familia3);
+
+        List<FamiliaListaResponseDTO> familiasOrdenadasEsperadas = new ArrayList<>();
+        familiasOrdenadasEsperadas.add(familiaMapper.familiaParaFamiliaListaResponse(familia3));
+        familiasOrdenadasEsperadas.add(familiaMapper.familiaParaFamiliaListaResponse(familia1));
+        familiasOrdenadasEsperadas.add(familiaMapper.familiaParaFamiliaListaResponse(familia2));
 
         MvcResult resultado = mvc.perform(get("/api/v1/familias/")).andReturn();
 
         int status = resultado.getResponse().getStatus();
-        assertEquals(HttpStatus.OK.value(), status);
+        String content = resultado.getResponse().getContentAsString();
+        ObjectMapper objectMapper = new ObjectMapper();
+        List<FamiliaListaResponseDTO> familiasOrdenadas = objectMapper.readValue(content,
+                new TypeReference<List<FamiliaListaResponseDTO>>() {
+                });
 
-        // To-do verificar conteudo da respostas mapeando para json para mapear para a classe familiaReponseDTO
-        //String content = resultado.getResponse().getContentAsString();
+        assertEquals(HttpStatus.OK.value(), status);
+        assertThat(familiasOrdenadas).hasSize(familiasOrdenadasEsperadas.size());
+
+        for (int i = 0; i < familiasOrdenadasEsperadas.size(); i++) {
+            FamiliaListaResponseDTO familiaEsperada = familiasOrdenadasEsperadas.get(i);
+            FamiliaListaResponseDTO familiaAtual = familiasOrdenadas.get(i);
+            assertThat(familiaAtual.getId()).isEqualTo(familiaEsperada.getId());
+        }
     }
 }

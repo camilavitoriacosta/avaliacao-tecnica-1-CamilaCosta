@@ -31,16 +31,14 @@ public class FamiliaController {
     @ApiResponse(responseCode = "200")
     @GetMapping()
     public ResponseEntity<Collection<FamiliaListaResponseDTO>> obterFamiliasOrdenadasPorPontuacao() {
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(familiaService.ordenarFamiliasPorPontuacao());
+        return ResponseEntity.status(HttpStatus.OK).body(familiaService.ordenarFamiliasPorPontuacao());
     }
 
     @Operation(summary = "Cadastrar uma nova familia")
     @ApiResponse(responseCode = "201")
     @PostMapping(consumes = { "application/json" })
     public ResponseEntity<FamiliaResponseDTO> criarFamilia(@RequestBody FamiliaRequestDTO novaFamilia) {
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(familiaService.criar(novaFamilia));
+        return ResponseEntity.status(HttpStatus.CREATED).body(familiaService.criar(novaFamilia));
     }
 
 }

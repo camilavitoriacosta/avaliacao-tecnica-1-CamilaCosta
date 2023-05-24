@@ -39,5 +39,4 @@ public class FamiliaService {
         return familiaMapper.familiasParaFamiliaListaResponse(familias);
     }
 
-    
 }
